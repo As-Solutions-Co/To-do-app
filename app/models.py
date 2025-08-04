@@ -17,17 +17,25 @@ class StatusEnum(str, Enum):
     canceled = "Canceled"
 
 
-# base models
+# User entity
+
+
+class UserRegister(SQLModel):
+    fullname: str = Field(min_length=5, max_length=200)
+    email: EmailStr = Field(unique=True, index=True, nullable=False)
+    password: str = Field(nullable=False)
+
+
 class User(SQLModel, table=True):
     id: UUID = Field(primary_key=True, default_factory=uuid4)
     fullname: str = Field(min_length=5, max_length=200)
-    username: str = Field(unique=True, index=True, nullable=False, max_length=20)
     email: EmailStr = Field(unique=True, index=True, nullable=False)
     password: str = Field(nullable=False)
 
     projects: List["Project"] = Relationship(back_populates="owner")
 
 
+# Project entity
 class Project(SQLModel, table=True):
     id: UUID = Field(primary_key=True, default_factory=uuid4)
     name: str = Field(nullable=False)
