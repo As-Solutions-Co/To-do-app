@@ -16,7 +16,8 @@
                 "--port",
                 "8000",
                 "--reload"
-            ]
+            ],
+            "justMyCode": false
         }
     ]
 }

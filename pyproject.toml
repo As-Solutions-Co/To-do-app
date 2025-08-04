@@ -10,5 +10,7 @@ dependencies = [
     "psycopg2-binary>=2.9.10",
     "pyjwt>=2.10.1",
     "python-dotenv>=1.1.1",
+    "ruff>=0.12.7",
     "sqlalchemy>=2.0.42",
+    "sqlmodel>=0.0.24",
 ]
