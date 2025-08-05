@@ -58,3 +58,11 @@ class Task(SQLModel, table=True):
 
     project_id: UUID = Field(foreign_key="project.id", nullable=False)
     project: "Project" = Relationship(back_populates="tasks")
+
+
+# Token model
+
+
+class Token(SQLModel):
+    access_token: str
+    token_type: str = "bearer"
